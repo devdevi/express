@@ -5,3 +5,4 @@ npm i -g nodemon
 nodemon <archivo de entrada>
 ```
 ### Body QUERY
+- Tipos de respuesta : Vacía, plana, con datos y estructurada

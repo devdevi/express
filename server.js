@@ -24,7 +24,12 @@ router.get('/messages', function(req, res) {
 router.post('/add', function(req, res) {
     console.log(req.body)
     console.log(req.query)
-    res.send(`${req.body.text}`)
+    // res.send(`${req.body.text}`)
+    res.status(201).send({
+        error: '',
+        message: 'Creado satisfactoria mente',
+        query: `${Object.entries(req.query)}`
+    })
 })
 // app.use('/', function(req, res){
 //     res.send('hola')
