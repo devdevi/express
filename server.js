@@ -13,6 +13,11 @@ router.get('/', function(req, res) {
     res.send('hola desde get')
 })
 router.get('/messages', function(req, res) {
+    // Cabeceras
+    console.log(req.headers)
+    res.header({
+        "custom-header":"Nuestro valor personalizado"
+    })
     console.log(req.body)
     res.send('Messages')
 })
