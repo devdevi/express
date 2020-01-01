@@ -1,17 +1,25 @@
-const express = require('express')
-const router = express.Router()
-var app = express()
+const express = require('express');
+// body-parcer
+const bodyParser = require('body-parser');
+const router = express.Router();
 
-app.use(router)
+var app = express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(router);
 
 router.get('/', function(req, res) {
     res.send('hola desde get')
 })
 router.get('/messages', function(req, res) {
+    console.log(req.body)
     res.send('Messages')
 })
 router.post('/add', function(req, res) {
-    res.send('hola desde post')
+    console.log(req.body)
+    console.log(req.query)
+    res.send(`${req.body.text}`)
 })
 // app.use('/', function(req, res){
 //     res.send('hola')

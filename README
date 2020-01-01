@@ -1,1 +1,7 @@
 ### Express
+actualizar automaticamente
+```
+npm i -g nodemon
+nodemon <archivo de entrada>
+```
+### Body QUERY
