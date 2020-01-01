@@ -1,0 +1,20 @@
+{
+  "name": "backendnode",
+  "version": "0.1.0",
+  "description": "Backend en nodejs un chat como telegram",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "chat",
+    "telegram",
+    "server"
+  ],
+  "author": "visidevi",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
