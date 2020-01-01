@@ -7,6 +7,12 @@ app.use(router)
 router.get('/', function(req, res) {
     res.send('hola desde get')
 })
+router.get('/messages', function(req, res) {
+    res.send('Messages')
+})
+router.post('/add', function(req, res) {
+    res.send('hola desde post')
+})
 // app.use('/', function(req, res){
 //     res.send('hola')
 // });
