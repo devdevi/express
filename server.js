@@ -46,8 +46,7 @@ router.post('/add', function (req, res) {
         response.success(req, res, 'Creado correctamente', 201)
     }
 })
-// app.use('/', function(req, res){
-//     res.send('hola')
-// });
+
+app.use('/app', express.static('public'));
 app.listen(3000);
 console.log('lA APP ESTA ESUCHANDO EN EL PUERTO 3000')
