@@ -41,7 +41,7 @@ router.post('/add', function (req, res) {
     // response.success(req, res, 'Creado correctamente', 201)
 
     if (req.query.error == "ok") {
-        response.error(req, res, 'ERROR SIMULADO', 400)
+        response.error(req, res, 'ERROR SIMULADO', 500,  "Es solo una simulación de los errores")
     } else {
         response.success(req, res, 'Creado correctamente', 201)
     }
