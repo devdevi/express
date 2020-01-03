@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
+// Response
+const response = require('../../network/response');
+
 
 router.get('/', function (req, res) {
     // res.send('hola desde get')
