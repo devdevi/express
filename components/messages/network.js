@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
+// Controlador
+const controller = require('./controller')
+
 // Response
 const response = require('../../network/response');
 
@@ -10,8 +13,6 @@ router.get('/', function (req, res) {
     response.success(req, res, 'Lista de mensajes')
 })
 router.get('/messages', function (req, res) {
-    // Cabeceras
-    // console.log(req.headers)
     res.header({
         "custom-header": "Nuestro valor personalizado"
     })
@@ -24,21 +25,13 @@ router.get('/messages', function (req, res) {
     }
 })
 router.post('/add', function (req, res) {
-    console.log(req.body)
-    console.log(req.query)
-    // res.send(`${req.body.text}`)
-    // res.status(201).send({
-    //     error: '',
-    //     message: 'Creado satisfactoria mente',
-    //     query: `${Object.entries(req.query)}`
-    // })
-    // response.success(req, res, 'Creado correctamente', 201)
-
-    if (req.query.error == "ok") {
-        response.error(req, res, 'ERROR SIMULADO', 500,  "Es solo una simulación de los errores")
-    } else {
-        response.success(req, res, 'Creado correctamente', 201)
-    }
+    const  { body } = req
+controller.addMessage(body.user, body.msg)
+.then((fullMessage) => {
+    response.success(req, res, (fullMessage , 201)
+})
+.catch(() => {
+    response.error(req, res, 'Informacion Invalida', 400,  "Es solo una simulación de los errores")
 })
 
 
