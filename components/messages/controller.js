@@ -23,10 +23,10 @@ function addMessage(user, msg) {
     });
 }
 
-function getMessages() {
+function getMessages(params) {
     return new Promise((resolve, reject) => {
-        console.log(store.list)
-        resolve(store.list())
+        
+        resolve(store.list(params))
     })
 }
 function updateMessage(id, msg ) {

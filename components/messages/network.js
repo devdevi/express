@@ -23,7 +23,8 @@ router.get('/', function (req, res) {
     // } else {
     //     response.success(req, res, 'Lista de mensajes', 200)
     // }
-    controller.getMessages()
+    const filterMessage = req.query.user  || null
+    controller.getMessages(filterMessage)
         .then((messageList) => {
             response.success(req, res, messageList, 200);
         }).catch((e) => {
