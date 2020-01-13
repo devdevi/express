@@ -16,12 +16,12 @@
 // }
 //  MOCK ARRIBA
 
-const db  = require('mongoose')
+// const db  = require('mongoose')
 const Model = require('./model')
-db.Promise = global.Promise;
-db.connect('mongodb+srv://user:user1234@telegram-mn7sh.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true  })
+// db.Promise = global.Promise;
+// db.connect('mongodb+srv://user:user1234@telegram-mn7sh.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true  })
 
-console.log('[db] success connection')
+// console.log('[db] success connection')
 
 const list = [];
 // Creamos un mock
