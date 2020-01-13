@@ -29,7 +29,19 @@ function getMessages() {
         resolve(store.list())
     })
 }
+function updateMessage(id, msg ) {
+    return new Promise(async (resolve, reject) => {
+        console.log(id, msg);
+        if (!id || !msg){
+            reject('Invalid Data')
+            return false
+        }
+        const result = await store.updateText(id, msg);
+        resolve(result)
+    })
+}
 module.exports = {
     addMessage,
     getMessages,
+    updateMessage,
 }

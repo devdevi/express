@@ -24,7 +24,7 @@ router.get('/', function (req, res) {
     //     response.success(req, res, 'Lista de mensajes', 200)
     // }
     controller.getMessages()
-        .then((messageList) =>  {
+        .then((messageList) => {
             response.success(req, res, messageList, 200);
         }).catch((e) => {
             response.error(req, res, 'Unexpected Error', 500, e)
@@ -40,4 +40,17 @@ router.post('/', function (req, res) {
     })
 })
 
-    module.exports = router;
+router.patch('/:id', function (req, res) {
+
+    const { id } = req.params
+    const { msg } = req.body
+
+    controller.updateMessage(id, msg)
+        .then((data) => {
+            response.success(req, res, data, 200)
+        })
+        .catch((e) => {
+            response.error(req, res, 'Error Interno', 500 , e)
+        })
+} )
+module.exports = router;
