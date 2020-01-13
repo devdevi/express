@@ -47,11 +47,17 @@ async function updateText(id, msg) {
     return newMessage;
 }
 
+async function remove(id) {
+    return Model.deleteOne({
+        _id: id
+    })
+}
 
 module.exports = {
     add: addMessage,
     list: getMessages,
     updateText,
+    remove,
     // get
     // update
     // delete

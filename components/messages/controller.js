@@ -25,7 +25,6 @@ function addMessage(user, msg) {
 
 function getMessages(params) {
     return new Promise((resolve, reject) => {
-        
         resolve(store.list(params))
     })
 }
@@ -39,9 +38,29 @@ function updateMessage(id, msg ) {
         const result = await store.updateText(id, msg);
         resolve(result)
     })
-}
+};
+
+function deleteMessage(id) {
+    return new Promise(async (resolve, reject) => {
+        console.log(id);
+        if (!id){
+            reject('Invalid Data')
+            return false
+        }
+        store.remove(id)
+            .then(() => {
+                resolve()
+            })
+            .catch(e => {
+                reject(e)
+            });
+        resolve(result)
+    })
+};
+
 module.exports = {
     addMessage,
     getMessages,
     updateMessage,
+    deleteMessage,
 }

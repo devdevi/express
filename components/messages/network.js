@@ -23,7 +23,7 @@ router.get('/', function (req, res) {
     // } else {
     //     response.success(req, res, 'Lista de mensajes', 200)
     // }
-    const filterMessage = req.query.user  || null
+    const filterMessage = req.query.user || null
     controller.getMessages(filterMessage)
         .then((messageList) => {
             response.success(req, res, messageList, 200);
@@ -51,7 +51,19 @@ router.patch('/:id', function (req, res) {
             response.success(req, res, data, 200)
         })
         .catch((e) => {
-            response.error(req, res, 'Error Interno', 500 , e)
+            response.error(req, res, 'Error Interno', 500, e)
         })
-} )
+});
+
+router.delete('/:id',function (req, res) {
+    const { id } = req.params
+    controller.deleteMessage(id)
+    .then(() => {
+        const msg = `Msg ${id} eliminado`
+        response.success(req, res, msg, 200)
+    })
+    .catch((e) => {
+        response.error(req, res, 'Error Interno', 500, e)
+    })
+})
 module.exports = router;
