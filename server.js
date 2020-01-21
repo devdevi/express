@@ -5,7 +5,8 @@ const bodyParser = require('body-parser');
 const db = require('./db')
 const router = require('./network/routers')
 
-db('mongodb+srv://user:user1234@telegram-mn7sh.mongodb.net/test?retryWrites=true&w=majority')
+db('mongodb://admin:admin@chat-shard-00-00-mn7sh.mongodb.net:27017,chat-shard-00-01-mn7sh.mongodb.net:27017,chat-shard-00-02-mn7sh.mongodb.net:27017/test?ssl=true&replicaSet=chat-shard-0&authSource=admin&retryWrites=true&w=majority')
+db('mongodb+srv://admin:admin@chat-mn7sh.mongodb.net/test?retryWrites=true&w=majority')
 var app = express();
 
 app.use(bodyParser.json());
@@ -18,4 +19,4 @@ router(app);
 
 app.use('/app', express.static('public'));
 app.listen(3000);
-console.log('lA APP ESTA ESUCHANDO EN EL PUERTO 3000')
+console.log('La APP ESTA Escuchando EN EL PUERTO 3000')

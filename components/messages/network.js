@@ -3,7 +3,7 @@ const express = require('express');
 // Controlador
 const controller = require('./controller')
 
-// Response
+// Responsea
 const response = require('../../network/response');
 
 const router = express.Router();
